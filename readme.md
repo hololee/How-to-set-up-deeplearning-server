@@ -3,8 +3,8 @@
 This repository just noted for reminding how to set up Deep learning server.   
 
 I explain about,  
-1. [How to set up server using Anaconda]()
-2. [How to set up server using Docker]()
+1. [How to set up server using Anaconda](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/anaconda.md)
+2. [How to set up server using Docker](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/docker.md)
 
 Before starting, you should prepare below environment.  
 - Ubuntu installed PC (Ubuntu 18.04 LTS ver is used here.)
@@ -13,4 +13,4 @@ Before starting, you should prepare below environment.
 
 You can see the process by clicking above contents.  
 
-And I noted Usable commands for bash shell. [Click here]()
+And I noted Usable commands for bash shell. [Click here](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/usable.md)
