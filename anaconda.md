@@ -6,13 +6,13 @@ Put below command on your bash shell then you can find recommanded driver for yo
 
 `$ ubuntu-drivers devices`  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res01.PNG?raw=true)  
 
 Next, Check gpu driver is working.  
 
 `$ nvidia-smi`  
   
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res02.PNG?raw=true)  
 
 ### 2. Install CUDA® Toolkit  
   
@@ -23,7 +23,7 @@ I'll Install CUDA 10.1 here.
 
 - Go to [This Page](https://developer.nvidia.com/cuda-toolkit-archive) and follow the instruction.  
   
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res03.PNG?raw=true)  
 
 ~~~
 $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
@@ -48,7 +48,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRA
 
 ※ You should change `cuda-10.1` to yours, you can find directory name here `/usr/local/`.  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res04.PNG?raw=true)  
 
 Finally, check CUDA version.  
 
@@ -61,6 +61,8 @@ Finally, check CUDA version.
 I'm going to install cuDNN@7.6 here.  
 Click 'Download cuDNN Runtime Library for Ubuntu18.04 (Deb)'.  
 ※ Developer Library contains examples for test.  
+
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res05.PNG?raw=true)  
   
 Run below command.  
 
