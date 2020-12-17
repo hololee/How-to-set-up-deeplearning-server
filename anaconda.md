@@ -1,6 +1,6 @@
-## How to set up server using Anaconda  
+# How to set up server using Anaconda  
 
-### 1. Install GPU driver for your PC  
+## 1. Install GPU driver for your PC  
 
 Put below command on your bash shell then you can find recommanded driver for your PC.  
 
@@ -54,7 +54,7 @@ Next, Check gpu driver is working.
   
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res02.PNG?raw=true)  
 
-### 2. Install CUDA® Toolkit  
+## 2. Install CUDA® Toolkit  
   
 For using Tensorflow or pytorch on GPU, We need to install CUDA® Toolkit and cuDNN.  
 There is a supported version relationship between Gpu driver, CUDA® Toolkit, and cuDNN, so be sure to check. ([Check here](https://www.tensorflow.org/install/gpu))  
@@ -96,7 +96,7 @@ Finally, check CUDA version.
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res03-1.PNG?raw=true)  
 
-### 3. Install cuDNN  
+## 3. Install cuDNN  
 
 [Download](https://developer.nvidia.com/cudnn) cuDNN(You need to Nvidia account.).  
   
@@ -119,7 +119,7 @@ Next, check cuDNN version.
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res05-1.PNG?raw=true)  
 
-### Install Anaconda  
+## Install Anaconda  
 
 First. install Anaconda [here](https://www.anaconda.com/products/individual#download-section).  
 
@@ -170,37 +170,3 @@ $ python
 >>> import torch  
 >>> torch.cuda.is_available()  
 ~~~
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
