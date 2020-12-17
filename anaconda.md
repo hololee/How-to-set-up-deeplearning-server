@@ -54,6 +54,8 @@ Finally, check CUDA version.
 
 `$ nvcc --version`  
 
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res03-1.PNG?raw=true)  
+
 ### 3. Install cuDNN  
 
 [Download](https://developer.nvidia.com/cudnn) cuDNN(You need to Nvidia account.).  
@@ -74,6 +76,8 @@ $ sudo dpkg -i <file_name>.deb
 Next, check cuDNN version.  
 
 `$ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`  
+
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res05-1.PNG?raw=true)  
 
 ### Install Anaconda  
 
