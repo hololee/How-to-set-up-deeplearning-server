@@ -46,7 +46,24 @@ Go to NVIDIA driver download [page](https://www.nvidia.com/Download/index.aspx).
 ![res]()  
 ![res]()  
 
+And follow below insruction.  
+~~~  
+// before do this, keep download path.  
+// Deactivate DisplayManager.(Display will be downed and enter to CUI mode. so keep this page in different device.)    
+$ systemctl isolate multi-user.target  
 
+// Remove Nvidia related package and configure file.  
+$ sudo apt --purge autoremove nvidia*  
+
+// Add permission to download file.  
+$ chmod +x <file_path>/<file_name>.run  
+
+// install.  
+$ sudo sh <file_path>/<file_name>.run  
+
+// Reactivate DisplayManager.  
+$ systemctl start graphical.target  
+~~~
 
 Next, Check gpu driver is working.  
 
