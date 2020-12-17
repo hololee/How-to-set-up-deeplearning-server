@@ -8,7 +8,8 @@ Put below command on your bash shell then you can find recommanded driver for yo
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res01.PNG?raw=true)  
 
-Install Gpu driver.  
+Install GPU driver.  
+
 ~~~
 // Update repository.  
 $ sudo add-apt-repository ppa:graphics-drivers/ppa  
@@ -19,19 +20,33 @@ $ apt-cache search nvidia | grep nvidia-driver-460
 ~~~  
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res00.PNG?raw=true)  
-
+  
+**- Using APT(select 1 or 2)**   
 ~~~
-//Install driver.  
+// 1. Install driver by apt.  
 $ sudo apt-get install nvidia-driver-460  
 
-// If not installed, using auto install.  
+// 2. Using auto install.  
 $ sudo ubuntu-drivers autoinstall  
 
-// Reboot.
+// Reboot.  
 $ sudo reboot  
 ~~~  
 ※ If some error occured, remove Nvidia related package and configure file.  
 `$ sudo apt --purge autoremove nvidia*`  
+
+**- Using software & updates.**  
+![res]()  
+![res]()  
+
+**- Using download drivers.**  
+
+Go to NVIDIA driver download [page](https://www.nvidia.com/Download/index.aspx).  
+
+![res]()  
+![res]()  
+
+
 
 Next, Check gpu driver is working.  
 
