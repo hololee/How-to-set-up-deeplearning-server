@@ -133,7 +133,7 @@ Before setup remind below commands.
 |`$ docker run <option> <image_name> <run_command>`|create container.|`$ docker run -i -t ubuntu /bin/bash`|  
 |`$ docker ps`|print current running containers state.| - |  
 |`$ docker attach <container_name>`|connect to container which process runs inside.(keep process like jupyer-notebook.) |`$ docker attach ubuntu`|  
-|`$ docker commit <container_name> <image_id>`| commit changes on container to image.| `$ docker commit ubuntu_my 1234ch34d00d` |  
+|`$ docker commit <container_name> <image_name>:<tag>`| commit changes on container to image.| `$ docker commit ubuntu_my ubuntu:18.04` |  
 |`$ docker restart <container_name>`| restart container. |`$ docker restart ubuntu_my`|  
 |`$ docker stop <container_name>`|stop container.|`$ docker stop ubuntu_my`|  
 |`$ docker exec <container_name or container_id> <command> <params>`|run bash command at outside of container.(container should be run)|`$ docker exec ubuntu_my apt-get update`|  
