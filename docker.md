@@ -3,7 +3,7 @@
 ## 0. What is Docker?  
 
 Docker Provide OS-level virtualization.  
-The main concept of Docker consists of images and containers, and when images are runed, they become containers.  
+The main concept of Docker consists of images and containers, and when images are run, they become containers.  
 Multiple containers can be run and the changed environment is deleted when container is terminated.  
 Therefore, the image must be updated through commit before termination.  
 The image is not entirely updated, but only a few are updated and are added based on the base image.  
