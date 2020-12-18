@@ -43,8 +43,8 @@ $ sudo reboot
 
 Go to NVIDIA driver download [page](https://www.nvidia.com/Download/index.aspx).  
 
-![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res011.png?raw=true)  
-![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res012.png?raw=true)  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res011e.png?raw=true)  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res012e.png?raw=true)  
 
 And follow below insruction.  
 ~~~  
