@@ -1,6 +1,6 @@
 ## How to set up server using Docker  
 
-## 0. What is iocker?  
+## 0. What is Docker?  
 
 Docker Provide OS-level virtualization.  
 The main concept of Docker consists of images and containers, and when images are runed, they become containers.  
