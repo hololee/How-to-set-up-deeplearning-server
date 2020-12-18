@@ -97,7 +97,7 @@ First, download docker.
 
 Go to [here](https://docs.docker.com/get-docker/) and download docker and follow the istruction.  
 
-![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res07.PNG?raw=true)  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res007.PNG?raw=true)  
 
 And check the version using `$ sudo docker version`  
 
