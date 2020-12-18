@@ -87,7 +87,7 @@ You can download popular images on [`Docker hub`](https://hub.docker.com/), But 
 
 To use GPUs in a docker, you need to use an [nvidia-docker](https://github.com/NVIDIA/nvidia-docker#quickstart).  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res06.png?raw=true)  
 
 Official image in nvidia-docker git repository.  
 
@@ -97,11 +97,11 @@ First, download docker.
 
 Go to [here](https://docs.docker.com/get-docker/) and download docker and follow the istruction.  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res07.PNG?raw=true)  
 
 And check the version using `$ sudo docker version`  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res08.PNG?raw=true)  
 
 
 Actually Docker always need root permission so give root permission for Docker(we can skip `sudo` command.).  
@@ -118,7 +118,7 @@ $ sudo usermod -a -G docker $USER
 # docker run hello-world  
 ~~~  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res09.PNG?raw=true)  
 
 Below commands are useful for manage Docker.  
 Before setup remind below commands.  
@@ -180,11 +180,11 @@ And give permission to `/home/jonghyeok/data`.
 
 If image is not in local, it will be downloaded.  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res13.PNG?raw=true)  
 
 You can see bash is changed. I just open new session and check `$ docker ps`.  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res14.PNG?raw=true)  
 
 ## 3. Install some packages and commit to images.  
 We install python 3.6 here.  
@@ -209,17 +209,17 @@ First check numpy is installed.
 
 `$ pip3 list | grep numpy`  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res15.PNG?raw=true)  
 
 Press (Ctrl + P) + (Ctrl + Q) to exit the container.(Container will not shut down, you should put `-it` options when run.)  
 And check container state using `$ docker ps`.  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res16.PNG?raw=true)  
 
 Commit changes,  
 `$ docker commit epic_chaplygin nvidia/cuda:10.0-base`  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res17.PNG?raw=true)  
 
 
 For test, stop container,  
@@ -231,7 +231,7 @@ Change image name for identify,
 Run aganin and test numpy,  
 `$ docker run -it -v ${HOME}/data:/home/jonghyeok/data numpy_nvidia/cuda:10.0-base /bin/bash`  
 
-![res]()  
+![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res18.PNG?raw=true)  
 
 Done! And more useful tips [here](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/usable.md)!  
 
