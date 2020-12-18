@@ -21,4 +21,9 @@ So use below command, using gedit or nano.
 ~~~
 $ gedit ~/text.txt   //using gedit.
 $ nano ~/text.txt   //using nano.
-~~~
+~~~  
+
+## Docker  
+In official website.  
+The contents of /var/lib/docker/, including images, containers, volumes, and networks, are preserved. If you do not need to save your existing data, and want to start with a clean installation, refer to the [uninstall Docker Engine section](https://docs.docker.com/engine/install/ubuntu/#uninstall-docker-engine) at the bottom of this page.  
+
