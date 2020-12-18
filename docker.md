@@ -123,14 +123,16 @@ $ sudo usermod -a -G docker $USER
 Below commands are useful for manage Docker.  
 Before setup remind below commands.  
 
+#### commands.  
 
 |command|operation|example|  
-|--|--|--|  
+|--|--|--| 
+|`$ docker version`|show version| - |   
 |`$ docker search <keyword>`|find images on Docker Hub.|`$ docker search ubuntu`|  
 |`$ doker images`| show docker image list. | - |  
 |`$ docker push <DockerHub_user_id>/<Image_name>:<tag>`| push docker images to docker hub.| `$ docker push jonghyeok/ubuntu:11.11`|  
 |`$ docker pull <image_name>:<tag>`| pull docker images form docker hub.| `$ docker pull ubuntu:latest`<br>`$ docker pull ubuntu:18.04`|  
-|`$ docker run <option> <image_name> <run_command>`|create container.|`$ docker run -i -t ubuntu /bin/bash`|  
+|`$ docker run <option> <image_name> <run_command>`|run container.<br>if not exist, download from DockerHub.|`$ docker run -i -t ubuntu /bin/bash`|  
 |`$ docker ps`|print current running containers state.| - |  
 |`$ docker attach <container_name>`|connect to container which process runs inside.(keep process like jupyer-notebook.) |`$ docker attach ubuntu`|  
 |`$ docker commit <container_name> <image_name>:<tag>`| commit changes on container to image.| `$ docker commit ubuntu_my ubuntu:18.04` |  
@@ -139,13 +141,97 @@ Before setup remind below commands.
 |`$ docker exec <container_name or container_id> <command> <params>`|run bash command at outside of container.(container should be run)|`$ docker exec ubuntu_my apt-get update`|  
 |`$ docker rm <container_name>`| remove container.|`$ docker rm ubuntu_my`|  
 |`$ docker rmi <image_name>:<tag>`|remove image.|`$ docker rmi ubuntu:18.04`|  
+|`$ docker tag <prev_image_name>:<tag> <new_image_name>:<tag>`|change image name.|`docker tag nvidia/cuda:10.0-base numpy_nvidia/cuda:10.0-base`|  
 
 
+#### docker run options.  
+
+|options|operation|example|  
+|--|--|--|  
+|`-i -t` or `-it`| interactive and Pseudo-tty(virtual terminal), you can use bash on command line. | `$ docker run -it ubuntu /bin/bash`|  
+|`-e <varaible>`| set environment variable.|`docker run -e NVIDIA_VISIBLE_DEVICES=1 tensorflow/tensorflow`|  
+|`-p <host>:<container>`|open port on container.([for jupyter, tensorboard](https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks))|`$ docker run -it -p 8888:8888 -p 6006:6006 tensorflow/tensorflow`|  
+|`-v <host_dir>:<container_dir>`|make volume in host.|`docker run -v ${HOME}/data:/home/jonghyeok/data ubuntu /bin/bash`|  
+|`--name <name>`| set container name. | `$ docker run -it --name my_name ubuntu /bin/bash`|  
+|`--rm`|when container terminated, remove file system. |`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
+|`--runtime=<runtime>`| change the runtime.<br>if set nvidia, can use CUDA Toolkit.|`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
+
+#### nvidia-docker run options. ([guide](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html))
+|`-d`| Docker to run in daemon mode; no tty, run in background (not shown in the command) |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
+|--|--|--|  
+|`--shm-size`|This line is a temporary workaround for a DIGITS multi-GPU error you might encounter. |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
 
 
+Install [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker)
+Go to [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian) and follow instructions.  
 
 
+Now, run images!    
+First, Download images from DockerHub.  before that, you should check your environments [here](https://github.com/NVIDIA/nvidia-docker/wiki/CUDA#description).  
+
+We should check what image is matched with our server. You can check [here](https://hub.docker.com/r/nvidia/cuda).  
+
+In mycase will use cuda:10.0,  
+
+`$ docker run -it -v ${HOME}/data:/home/jonghyeok/data nvidia/cuda:10.0-base /bin/bash`  
+
+And give permission to `/home/jonghyeok/data`.  
+`$ sudo chmod -R 777 /home/jonghyeok/data`  
+
+If image is not in local, it will be downloaded.  
+
+![res]()  
+
+You can see bash is changed. I just open new session and check `$ docker ps`.  
+
+![res]()  
+
+## 3. Install some packages and commit to images.  
+We install python 3.6 here.  
+
+~~~  
+# apt-get update  
+# apt-get install -y software-properties-common  
+
+// latest version should use 'ppa:deadsnakes/ppa'
+# add-apt-repository -y ppa:fkrull/deadsnakes  
+
+# apt-get update  
+# apt-get install -y --no-install-recommends python3.6 python3.6-dev python3-pip python3-setuptools python3-wheel gcc  
+
+//install git also  
+# apt-get install -y git  
+~~~  
+
+Just install python packages using `$ pip3 <package>`.  
+Let's install numpy here.  
+First check numpy is installed.  
+
+`$ pip3 list | grep numpy`  
+
+![res]()  
+
+Press (Ctrl + P) + (Ctrl + Q) to exit the container.(Container will not shut down, you should put `-it` options when run.)  
+And check container state using `$ docker ps`.  
+
+![res]()  
+
+Commit changes,  
+`$ docker commit epic_chaplygin nvidia/cuda:10.0-base`  
+
+![res]()  
 
 
+For test, stop container,  
+`$ docker stop epic_chaplygin`  
 
+Change image name for identify,  
+`$ docker tag nvidia/cuda:10.0-base numpy_nvidia/cuda:10.0-base`  
+
+Run aganin and test numpy,  
+`$ docker run -it -v ${HOME}/data:/home/jonghyeok/data numpy_nvidia/cuda:10.0-base /bin/bash`  
+
+![res]()  
+
+Done! And more useful tips [here](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/usable.md)!  
 
