@@ -57,6 +57,19 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
   $ docker import <file_name>.tar  
   ~~~  
 
+#### -  Remove remained docker container space.  
+   If you stop the container which run without `-rm` options, it wii be automatically removed.  
+   But this container still occupy the storage space.  
+
+   Check, 
+   `$ docker ps -a`  
+
+   So if you use below, you can remove all.  
+   `$ docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm`  
+
+   Check,
+   `$ docker ps -a`  
+
 
 ## CUDA.  
 - Check version  

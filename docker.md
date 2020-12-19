@@ -133,7 +133,7 @@ Before setup remind below commands.
 |`$ docker push <DockerHub_user_id>/<Image_name>:<tag>`| push docker images to docker hub.| `$ docker push jonghyeok/ubuntu:11.11`|  
 |`$ docker pull <image_name>:<tag>`| pull docker images form docker hub.| `$ docker pull ubuntu:latest`<br>`$ docker pull ubuntu:18.04`|  
 |`$ docker run <option> <image_name> <run_command>`|run container.<br>if not exist, download from DockerHub.|`$ docker run -i -t ubuntu /bin/bash`|  
-|`$ docker ps`|print current running containers state.| - |  
+|`$ docker ps`|print current running containers state.| `$ docker ps -a` : show all containers. |  
 |`$ docker attach <container_name>`|connect to container which process runs inside.(keep process like jupyer-notebook.) |`$ docker attach ubuntu`|  
 |`$ docker commit <container_name> <image_name>:<tag>`| commit changes on container to image.| `$ docker commit ubuntu_my ubuntu:18.04` |  
 |`$ docker restart <container_name>`| restart container. |`$ docker restart ubuntu_my`|  
@@ -153,7 +153,7 @@ Before setup remind below commands.
 |`-p <host>:<container>`|open port on container.([for jupyter, tensorboard](https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks))|`$ docker run -it -p 8888:8888 -p 6006:6006 tensorflow/tensorflow`|  
 |`-v <host_dir>:<container_dir>`|make volume in host.|`docker run -v ${HOME}/data:/home/jonghyeok/data ubuntu /bin/bash`|  
 |`--name <name>`| set container name. | `$ docker run -it --name my_name ubuntu /bin/bash`|  
-|`--rm`| Automatically remove the container when it exits |`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
+|`--rm`| Automatically remove the container when it exits<br>Automaitcally stopped container still have disk space. so this option remove that. [see.](https://mkyong.com/docker/what-is-docker-rm-option/) |`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
 |`--runtime=<runtime>`| change the runtime.<br>if set nvidia, can use CUDA Toolkit.|`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
 
 #### nvidia-docker run options. ([guide](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html))
@@ -176,7 +176,7 @@ And there are so many prepared images tag, so you can find [here](https://gitlab
 
 In mycase will use cuda:10.0-base, (If you want to cudnn also, use 10.0-cudnn7-runtime)  
 
-`$ docker run -it -v ${HOME}/data:/home/jonghyeok/data nvidia/cuda:10.0-base /bin/bash`  
+`$ docker run -it -rm -v ${HOME}/data:/home/jonghyeok/data nvidia/cuda:10.0-base /bin/bash`  
 
 And give permission to `/home/jonghyeok/data`.  
 `$ sudo chmod -R 777 /home/jonghyeok/data`  
@@ -215,7 +215,7 @@ First check numpy is installed.
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res15.PNG?raw=true)  
 
 Press (Ctrl + P) + (Ctrl + Q) to exit the container.(Container will not shut down, you should put `-it` options when run.)  
-And check container state using `$ docker ps`.  
+And check container state using `$ docker ps -a`.  
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res16.PNG?raw=true)  
 
