@@ -29,6 +29,30 @@ In my case when install gpu driver below error occured.
 
 So i just follow [this](https://askubuntu.com/questions/563178/the-following-packages-have-unmet-dependencies) solution.    
 
+~~~  
+$ sudo apt-get install aptitude
+$ sudo aptitude install nvidia-driver-460
+~~~  
+
+Next reply to replace driver like below (my case N, Y, Y {change the driver.}).  
+~~~
+The following actions will resolve these dependencies:
+
+Keep the following packages at their current version:
+1)     ~~~~~~~                        
+
+Accept this solution? [Y/n/q/?] n
+
+The following actions will resolve these dependencies:
+
+Downgrade the following packages:                                
+1)     ~~~~~ ubuntu2.3 (now) -> ubuntu2 
+
+Accept this solution? [Y/n/q/?] Y
+
+...
+~~~  
+
 
 ## Docker  
 In official website.  
