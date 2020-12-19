@@ -176,7 +176,7 @@ And there are so many prepared images tag, so you can find [here](https://gitlab
 
 In mycase will use cuda:10.0-base, (If you want to cudnn also, use 10.0-cudnn7-runtime)  
 
-`$ docker run -it -rm -v ${HOME}/data:/home/jonghyeok/data nvidia/cuda:10.0-base /bin/bash`  
+`$ docker run -it --rm -v ${HOME}/data:/home/jonghyeok/data nvidia/cuda:10.0-base /bin/bash`  
 
 And give permission to `/home/jonghyeok/data`.  
 `$ sudo chmod -R 777 /home/jonghyeok/data`  
