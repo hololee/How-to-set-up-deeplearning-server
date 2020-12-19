@@ -116,4 +116,7 @@ $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 //or
 $ cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2  
 ~~~  
+
+- In docker.  
+`# export`
   
