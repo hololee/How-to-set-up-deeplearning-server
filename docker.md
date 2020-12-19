@@ -215,7 +215,7 @@ First check numpy is installed.
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res15.PNG?raw=true)  
 
 Press (Ctrl + P) + (Ctrl + Q) to exit the container.(Container will not shut down, you should put `-it` options when run.)  
-And check container state using `$ docker ps -a`.  
+And check container state using `$ docker ps`.  
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res16.PNG?raw=true)  
 
