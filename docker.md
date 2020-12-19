@@ -153,25 +153,28 @@ Before setup remind below commands.
 |`-p <host>:<container>`|open port on container.([for jupyter, tensorboard](https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks))|`$ docker run -it -p 8888:8888 -p 6006:6006 tensorflow/tensorflow`|  
 |`-v <host_dir>:<container_dir>`|make volume in host.|`docker run -v ${HOME}/data:/home/jonghyeok/data ubuntu /bin/bash`|  
 |`--name <name>`| set container name. | `$ docker run -it --name my_name ubuntu /bin/bash`|  
-|`--rm`|when container terminated, remove file system. |`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
+|`--rm`| Automatically remove the container when it exits |`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
 |`--runtime=<runtime>`| change the runtime.<br>if set nvidia, can use CUDA Toolkit.|`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
 
 #### nvidia-docker run options. ([guide](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html))
 |`-d`| Docker to run in daemon mode; no tty, run in background (not shown in the command) |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
 |--|--|--|  
 |`--shm-size`|This line is a temporary workaround for a DIGITS multi-GPU error you might encounter. |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
+  
+※ See more options [here](https://docs.docker.com/engine/reference/commandline/run/).  
 
 
-Install [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker)
-Go to [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian) and follow instructions.  
+Install [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker)  
+Visit [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian) and follow instructions.  
 
 
 Now, run images!    
 First, Download images from DockerHub.  before that, you should check your environments [here](https://github.com/NVIDIA/nvidia-docker/wiki/CUDA#description).  
 
 We should check what image is matched with our server. You can check [here](https://hub.docker.com/r/nvidia/cuda).  
+And there are so many prepared images tag, so you can find [here](https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md).
 
-In mycase will use cuda:10.0,  
+In mycase will use cuda:10.0-base, (If you want to cudnn also, use 10.0-cudnn7-runtime)  
 
 `$ docker run -it -v ${HOME}/data:/home/jonghyeok/data nvidia/cuda:10.0-base /bin/bash`  
 
