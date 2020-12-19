@@ -57,4 +57,19 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
   $ docker import <file_name>.tar  
   ~~~  
 
+
+## CUDA.  
+- Check version  
+
+~~~  
+// check cuda version.  
+$ cat /usr/local/cuda/version.txt  
+//or  
+$ nvcc  --version  
+
+// check cudnn version.  
+$ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2  
+//or
+$ cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2  
+~~~  
   
