@@ -206,6 +206,9 @@ We install python 3.6 here.
 
 //install git also  
 # apt-get install -y git  
+
+// install jdk
+# apt-get install default-jdk
 ~~~  
 
 Just install python packages using `$ pip3 <package>`.  
@@ -239,7 +242,4 @@ Run aganin and test numpy,
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res18.PNG?raw=true)  
 
 Done! And more useful tips [here](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/usable.md)!  
-
-#### P.S Install jdk
-`$ sudo apt-get install default-jdk`
 
