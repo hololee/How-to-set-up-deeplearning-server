@@ -70,7 +70,7 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
   $ docker image prune -a  
   ~~~  
 
-#### - export and import containers and images.  
+#### - xport and import containers and images.  
   
   ~~~  
   // save image.  
