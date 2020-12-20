@@ -220,7 +220,7 @@ And check container state using `$ docker ps`.
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res16.PNG?raw=true)  
 
 Commit changes,  
-`$ docker commit epic_chaplygin nvidia/cuda:10.0-base`  
+`$ docker run -it --rm -v /home/jonghyeok/pycharm:${HOME}/data nvidia/cuda:10.0-cudnn7-runtime /bin/bash`  
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res17.PNG?raw=true)  
 
