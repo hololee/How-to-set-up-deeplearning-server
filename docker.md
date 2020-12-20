@@ -177,6 +177,8 @@ And there are so many prepared images tag, so you can find [here](https://gitlab
 In mycase will use cuda:10.0-base, (If you want to cudnn also, use 10.0-cudnn7-runtime)  
 
 `$ docker run -it --rm -v ${HOME}/data:/home/jonghyeok/data nvidia/cuda:10.0-base /bin/bash`  
+or,
+`$ docker run -it --rm -v /home/jonghyeok/Desktop/pycharm:/home/jonghyeok/data nvidia/cuda:10.0-cudnn7-runtime /bin/bash`
 
 And give permission to `/home/jonghyeok/data`.  
 `$ sudo chmod -R 777 /home/jonghyeok/data`  
@@ -220,7 +222,7 @@ And check container state using `$ docker ps`.
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res16.PNG?raw=true)  
 
 Commit changes,  
-`$ docker run -it --rm -v /home/jonghyeok/pycharm:${HOME}/data nvidia/cuda:10.0-cudnn7-runtime /bin/bash`  
+`$ docker commit epic_chaplygin nvidia/cuda:10.0-base`  
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res17.PNG?raw=true)  
 
