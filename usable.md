@@ -1,16 +1,16 @@
-## Usable Things.
+# Usable Things.
 
-#### .bashrc  
+### .bashrc  
 
 It is placed at `/home/<user_name>/.bashrc` (It only work for specific user.)  
 When bash start, this setting is applied.  
 
 ※ You shoud set Cuda Eenviroment variaeble here.  
 
-#### Stop script. 
+### Stop script. 
 - ctrl + C : You can get out of state.  
 
-#### File Edit.  
+### File Edit.  
 Many times you can see below command.  
 
 `$ vi ~/text.txt`  
@@ -23,7 +23,7 @@ $ gedit ~/text.txt   //using gedit.
 $ nano ~/text.txt   //using nano.
 ~~~  
 
-#### Dependancy problem.  
+### Dependancy problem.  
 In my case when install gpu driver below error occured.  
 `The following packages have unmet dependencies:~~`  
 
@@ -54,12 +54,12 @@ Accept this solution? [Y/n/q/?] Y
 ~~~  
 
 
-## Docker  
+# Docker  
 In official website.  
 The contents of /var/lib/docker/, including images, containers, volumes, and networks, are preserved. If you do not need to save your existing data, and want to start with a clean installation, refer to the [uninstall Docker Engine section](https://docs.docker.com/engine/install/ubuntu/#uninstall-docker-engine) at the bottom of this page.  
 
 
-#### - Clean images.  
+### - Clean images.  
   If you continue to use the dockers, images that you don't use accumulate. So the images you don't need should be cleaned up for storage, so the functions below help you.  
 
   ~~~  
@@ -70,7 +70,12 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
   $ docker image prune -a  
   ~~~  
 
-#### - xport and import containers and images.  
+### - Stop all containers.  
+  Can stop every containers like below,  
+  `$ docker stop $(docker ps -a -q)`  
+  
+
+### - Export and import containers and images.  
   
   ~~~  
   // save image.  
@@ -88,7 +93,7 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
   $ docker import <file_name>.tar  
   ~~~  
 
-#### -  Remove remained docker container space.  
+### -  Remove remained docker container space.  
    If you stop the container which run without `-rm` options, it wii be automatically removed.  
    But this container still occupy the storage space.  
 
@@ -101,7 +106,7 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
    Check,
    `$ docker ps -a`  
    
-#### -  X11 forwarding Connection mobaXterm - ubuntu - docker.  
+### -  X11 forwarding Connection mobaXterm - ubuntu - docker.  
    Run X11 apps via ssh tools.  
    ~Open access.~  
    ~`$ xhost local:docker`~  
@@ -110,7 +115,7 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
    `$ -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --volume="$HOME/.Xauthority:/root/.Xauthority:rw"`
 
 
-## CUDA.  
+# CUDA.  
 - Check version  
 
 ~~~  
