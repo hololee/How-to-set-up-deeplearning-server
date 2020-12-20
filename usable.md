@@ -100,6 +100,14 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
 
    Check,
    `$ docker ps -a`  
+   
+#### -  X11 forwarding Connection mobaXterm - ubuntu - docker.  
+   Run X11 apps via ssh tools.  
+   ~Open access.~  
+   ~`$ xhost local:docker`~  
+   
+   Add option at run.  
+   `$ -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --volume="$HOME/.Xauthority:/root/.Xauthority:rw"`
 
 
 ## CUDA.  
