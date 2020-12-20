@@ -240,3 +240,6 @@ Run aganin and test numpy,
 
 Done! And more useful tips [here](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/usable.md)!  
 
+#### P.S Install jdk
+`$ sudo apt-get install default-jdk`
+
