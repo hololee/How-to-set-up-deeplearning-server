@@ -30,7 +30,7 @@ $ apt-cache search nvidia | grep nvidia-driver-460
 
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res00.PNG?raw=true)  
   
-**- Using APT(select 1 or 2)**   
+### - Using APT(select 1 or 2)   
 ~~~
 // 1. Install driver by apt.  
 $ sudo apt-get install nvidia-driver-460  
@@ -44,11 +44,12 @@ $ sudo reboot
 ※ If some error occured, remove Nvidia related package and configure file.  
 `$ sudo apt --purge autoremove nvidia*`  
 
-**- Using software & updates.**  
+### - Using software & updates.  
+
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res000.png?raw=true)  
 ![res](https://github.com/hololee/How-to-set-up-deeplearning-server/blob/main/resources/res001.png?raw=true)  
 
-**- Using download drivers.**  
+### - Using download drivers.  
 
 Go to NVIDIA driver download [page](https://www.nvidia.com/Download/index.aspx).  
 
@@ -91,7 +92,7 @@ To use GPUs in a docker, you need to use an [nvidia-docker](https://github.com/N
 
 Official image in nvidia-docker git repository.  
 
-**- Install Docker**  
+### - Install Docker  
 To use nvidia-docker, Nvidia-driver and docker should be installed on OS.  
 First, download docker.  
 
@@ -123,7 +124,7 @@ $ sudo usermod -a -G docker $USER
 Below commands are useful for manage Docker.  
 Before setup remind below commands.  
 
-#### commands.  
+### Commands.  
 
 |command|operation|example|  
 |--|--|--| 
@@ -144,7 +145,7 @@ Before setup remind below commands.
 |`$ docker tag <prev_image_name>:<tag> <new_image_name>:<tag>`|change image name.|`docker tag nvidia/cuda:10.0-base numpy_nvidia/cuda:10.0-base`|  
 
 
-#### docker run options.  
+### Docker run options.  
 
 |options|operation|example|  
 |--|--|--|  
@@ -156,12 +157,12 @@ Before setup remind below commands.
 |`--rm`| Automatically remove the container when it exits<br>Automaitcally stopped container still have disk space. so this option remove that. [see.](https://mkyong.com/docker/what-is-docker-rm-option/) |`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
 |`--runtime=<runtime>`| change the runtime.<br>if set nvidia, can use CUDA Toolkit.|`docker run -ti --rm -e NVIDIA_VISIBLE_DEVICES=1 --runtime=nvidia nvidia/cuda`|  
 
-#### nvidia-docker run options. ([guide](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html))
+### nvidia-docker run options. ([guide](https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html))
 |`-d`| Docker to run in daemon mode; no tty, run in background (not shown in the command) |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
 |--|--|--|  
 |`--shm-size`|This line is a temporary workaround for a DIGITS multi-GPU error you might encounter. |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
   
-※ See more options [here](https://docs.docker.com/engine/reference/commandline/run/).  
+**※ See more options [here](https://docs.docker.com/engine/reference/commandline/run/).**  
 
 
 Install [nvidia-docker2](https://github.com/NVIDIA/nvidia-docker)  
