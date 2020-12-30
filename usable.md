@@ -69,6 +69,12 @@ The contents of /var/lib/docker/, including images, containers, volumes, and net
   // not used which one run as container will be cleaned.  
   $ docker image prune -a  
   ~~~  
+  
+### - Clean containers.
+If you want to remove stopped container,  
+~~~   
+$ docker container rm <container_id>
+~~~   
 
 ### - Stop all containers.  
   Can stop every containers like below,  
