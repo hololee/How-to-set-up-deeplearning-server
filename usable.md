@@ -80,7 +80,7 @@ $ docker container rm <container_id>
   Can stop every containers like below,  
   `$ docker stop $(docker ps -a -q)`  
   
-  Or want to remove all containers,
+  Or want to remove all containers,  
   `$ docker rm $(docker ps -a -q)`
   
 
