@@ -161,6 +161,7 @@ Before setup remind below commands.
 |`-d`| Docker to run in daemon mode; no tty, run in background (not shown in the command) |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
 |--|--|--|  
 |`--shm-size`|This line is a temporary workaround for a DIGITS multi-GPU error you might encounter. |`nvidia-docker run -d --shm-size 6G -it --name my_name nvidia/cuda:10.1-base /bin/bash`|  
+|`--entrypoint`|Replace the command mentioned 'Dockerfile' as entrypoint when container started.|`sudo docker run --entrypoint [new_command] [docker_image] [optional:value]`|
   
 **※ See more options [here](https://docs.docker.com/engine/reference/commandline/run/).**  
 
